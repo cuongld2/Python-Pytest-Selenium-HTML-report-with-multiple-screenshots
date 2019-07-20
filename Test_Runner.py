@@ -7,9 +7,9 @@ from selenium.webdriver.support.select import Select
 import pytest
 
 
-class TestBrowser():
+class TestBrowser:
 
-    def test_teach(self,browser):
+    def test_teach(self, browser):
         Value = "Under 20"
         browser.get("http://www.teachmeselenium.com/automation-practice/")
         dropdown = Select(browser.find_element_by_name("age"))
