@@ -10,10 +10,10 @@ import pytest
 from selenium import webdriver
 import pytest
 
-driver = webdriver.Chrome()
+driver = None
 
 
-@pytest.mark.hookwrapper
+@pytest.mark.hookwrapper(scope='session', autouse=True)
 def pytest_runtest_makereport(item):
     """
     Extends the PyTest Plugin to take and embed screenshot in html report, whenever test fails.
