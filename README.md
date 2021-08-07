@@ -6,7 +6,6 @@ Create test cases by using Pytest to test webpages via selenium and generate a n
 Download the chromdriver execution file and save it in the scripts folder:      
 http://chromedriver.chromium.org/           
 C:\Python36-32\Scripts
-
 ### Installation
 
 ```sh
@@ -27,5 +26,8 @@ C:\SeleniumProject\Pytest_HTML_ScreenShot>py.test -s -v Test_Runner.py --html=Ht
 
 
 ![image](https://user-images.githubusercontent.com/35892616/41856814-acd5dede-789e-11e8-9b77-5dc229c7dc4f.png)
+
+### Run with pytest bdd
+pytest -m "example"
 
 
