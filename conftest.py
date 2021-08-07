@@ -1,17 +1,16 @@
 import pytest
-
-# @pytest.yield_fixture(scope='session')
-# def browser():
-#     from selenium import webdriver
-#     driver = webdriver.Chrome()
-#     yield driver
-#     driver.quit()
-
 from selenium import webdriver
-import pytest
 
 driver = None
 
+
+@pytest.yield_fixture(scope='session')
+def browser():
+    global driver
+    from selenium import webdriver
+    driver = webdriver.Chrome()
+    yield driver
+    driver.quit()
 
 @pytest.mark.hookwrapper(scope='session', autouse=True)
 def pytest_runtest_makereport(item):
@@ -37,14 +36,15 @@ def pytest_runtest_makereport(item):
 
 
 def _capture_screenshot(name):
+    global driver
     driver.get_screenshot_as_file("ScreenShots/" + name)
     # driver.get_screenshot_as_file(name)
 
 
-@pytest.fixture(scope='session', autouse=True)
-def browser():
-    global driver
-    driver = webdriver.Chrome()
-    yield driver
-    driver.quit()
-    return
+# @pytest.fixture(scope='session', autouse=True)
+# def browser():
+#     global driver
+#     driver = webdriver.Chrome()
+#     yield driver
+#     driver.quit()
+#     return
