@@ -3,7 +3,7 @@ attrs==21.2.0
 colorama==0.4.4
 glob2==0.7
 iniconfig==1.1.1
-Mako==1.1.4
+Mako==1.2.2
 MarkupSafe==2.0.1
 packaging==21.0
 parse==1.19.0
